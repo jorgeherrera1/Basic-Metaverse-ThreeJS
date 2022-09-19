@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>
+		<form onsubmit="return false">
+			<div class="row g-3">
+				<div class="col-sm">
+					<label class="form-label">NFT Name</label>
+					<input type="text" class="form-control" id="nft_name" required>
+				</div>
+
+				<div class="col-sm">
+					<label class="form-label">NFT Width</label>
+					<input type="number" class="form-control" id="nft_width" required>
+				</div>
+
+				<div class="col-sm">
+					<label class="form-label">NFT Height</label>
+					<input type="number" class="form-control" id="nft_height" required>
+				</div>
+
+				<div class="col-sm">
+					<label class="form-label">NFT Depth</label>
+					<input type="number" class="form-control" id="nft_depth" required>
+				</div>
+
+				<div class="col-sm">
+					<label class="form-label">NFT X</label>
+					<input type="number" class="form-control" id="nft_x" required>
+				</div>
+
+				<div class="col-sm">
+					<label class="form-label">NFT Y</label>
+					<input type="number" class="form-control" id="nft_y" required>
+				</div>
+
+				<div class="col-sm">
+					<label class="form-label">NFT Z</label>
+					<input type="number" class="form-control" id="nft_z" required>
+				</div>
+
+				<button id="mint" type="submit" class="btn btn-primary">Create NFT</button>
+			</div>
+		</form>
+
+		<script src="three.js"></script>
+        <script src="src/index.js" type="module"></script>
+		<script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script> 
+	</body>
+</html>
