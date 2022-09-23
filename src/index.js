@@ -1,17 +1,20 @@
+import * as THREE from 'three';
 import Movements from './movements.js';
 import blockchain from './web3.js';
 import abi from "./abi/abi.js";
+import {OrbitControls} from './controls/OrbitControls.js';
 
-
-// declaration of new scene
-const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xbdf1e5);
-
-// camara and rendered configuration
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+// create renderer
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+
+// declaration of new scene and camera
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xbdf1e5);
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const controls = new OrbitControls(camera, renderer.domElement);
 
 // setting the scene lights
 const ambientLight = new THREE.AmbientLight(0xbda355);
@@ -49,6 +52,7 @@ scene.add( cylinder );
 
 camera.position.z = 5;
 camera.position.set(10, 5, 40);
+controls.update();
 
 function animate() {
     /*
@@ -63,6 +67,7 @@ function animate() {
     */
     //camera.position.x += 0.01;
     requestAnimationFrame(animate);
+    controls.update();
 
     // movement to the left
     if (Movements.onKeyPressed(37)) {
